@@ -17,3 +17,7 @@ export const selectCountry = selectedCountry => ({
     type:'SELECTED_COUNTRY',
     selectedCountry
 }) 
+
+export const prevStep = () => ({
+    type:'PREV_STEP'
+}) 

@@ -1,8 +1,12 @@
-
-export function countries(state = {countries:[], filtered:[], }, action) {
+const history = [];
+export function countries(state = {countries:[], filtered:[], selectedCountry: null}, action) {
+    
+    if (action.type !== 'PREV_STEP') {history.push(state);}
     switch (action.type) {
         case 'COUNTRIES_SUCCESS':
-            return {                
+
+            return {     
+                ...state,           
                 countries: action.countries
             };
 
@@ -22,7 +26,13 @@ export function countries(state = {countries:[], filtered:[], }, action) {
             return {                
                 ...state,
                 selectedCountry: action.selectedCountry
-            };            
+            }; 
+            
+        case  'PREV_STEP':
+             if (!history.length) return state;
+            return {                
+                ...history.pop()
+            };      
         default:
             return state
     }
