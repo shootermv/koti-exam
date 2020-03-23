@@ -9,7 +9,7 @@ export function countries(state = {countries:[], filtered:[], }, action) {
         case 'COUNTRIES_FILTERED':
             return {                
                 ...state,
-                selectedCountry: null,
+                selectedCountry: null, // must 'reset' selected country
                 filtered: action.filtered
             };
             
