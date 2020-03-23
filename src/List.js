@@ -9,7 +9,7 @@ export default function List() {
   if (!countries) return null;
   return (
     <Card>
-      <h4>list:</h4>
+      <h4>Countries List:</h4>
       <ul>
         {countries.map(country => (
           <li

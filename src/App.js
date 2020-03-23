@@ -7,6 +7,14 @@ import SideBar from "./Sidebar";
 import {getCountries, prevStep} from './redux/actions'
 import styled from '@emotion/styled';
 
+const Logo = styled.div`
+  height: 70px;
+  background: #000;
+`;
+
+const Header = styled.header`
+  height: 70px;
+`;
 
 const Main = styled.main`
   display: grid;
@@ -29,15 +37,16 @@ export default function App() {
 
   return (
     <div className="App">
-      <header>
-        <div className="title">Hello CodeSandbox </div>
+      <Header>
+        <div className="title"></div>
         <button onClick={() => dispatch(prevStep())}>back</button>
-      </header>
-      < Main>
+      </Header>
+      <Main>
         <List/>
         <Details/>
       </Main>
       <aside>
+        <Logo/>
         <SideBar/>
       </aside>
     </div>
