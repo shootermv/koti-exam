@@ -7,26 +7,22 @@ export default function SideBar() {
   const dispatch = useDispatch();
   const letterClick = e => {
     let term = e.target.textContent;
-    
-    //let filtered = countries.filter(({ name }) => new RegExp(`^${letter}`).test(name.toLowerCase()));
     dispatch(filterCountries(term, true));
   };
   const search = e => {
     let term = e.target.value;
-    
-  //  let filtered = countries.filter(({ name }) => new RegExp(`${term}`).test(name.toLowerCase()));
     dispatch(filterCountries(term));
   };
   return (
     <nav>
-    <input onInput={search} />
-    <ul>
-      {"abcdefghijklmnopqrstuvwxyz".split("").map(letter => (
-        <li key={letter} onClick={letterClick}>
-          {letter}
-        </li>
-      ))}
-    </ul>
+        <input onInput={search} />
+        <ul>
+        {"abcdefghijklmnopqrstuvwxyz".split("").map(letter => (
+            <li key={letter} onClick={letterClick}>
+            {letter}
+            </li>
+        ))}
+        </ul>
   </nav>
   );
 }
