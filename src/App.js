@@ -5,6 +5,14 @@ import Details from "./Details";
 import "./styles.css";
 import SideBar from "./Sidebar";
 import {getCountries, prevStep} from './redux/actions'
+import styled from '@emotion/styled';
+
+const Main = styled.main`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  padding: 20px;
+`
 
 export default function App() {
   const dispatch = useDispatch();
@@ -20,10 +28,10 @@ export default function App() {
         <div className="title">Hello CodeSandbox </div>
         <button onClick={() => dispatch(prevStep())}>back</button>
       </header>
-      <main>
+      < Main>
         <List/>
         <Details/>
-      </main>
+      </Main>
       <aside>
         <SideBar/>
       </aside>
