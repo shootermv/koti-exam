@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {useDispatch} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import List from "./List";
 import Details from "./Details";
 import "./styles.css";
@@ -7,10 +7,11 @@ import SideBar from "./Sidebar";
 import {getCountries} from './redux/actions'
 
 export default function App() {
-  const [countries, setCountries] = useState([]);
+
   let [filteredCountries, setFiltered] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const dispatch = useDispatch();
+  const countries = useSelector(({ countries }) => countries)
 
   const letterClick = e => {
     let letter = e.target.textContent;
