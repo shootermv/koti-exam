@@ -28,8 +28,11 @@ export function countries(state = {countries:[], filtered:[], selectedCountry: n
                 selectedCountry: action.selectedCountry
             }; 
             
-        case  'PREV_STEP':
-             if (!history.length) return state;
+        case 'PREV_STEP':
+            if (!history.length || history[history.length-1].countries.length === 0) {
+                console.log('no history')
+                return state;
+            }
             return {                
                 ...history.pop()
             };      

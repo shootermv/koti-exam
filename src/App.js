@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className="App">
       <header>
-        Hello CodeSandbox 
+        <div className="title">Hello CodeSandbox </div>
         <button onClick={() => dispatch(prevStep())}>back</button>
       </header>
       <main>
