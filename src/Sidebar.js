@@ -11,8 +11,15 @@ export default function SideBar() {
     let filtered = countries.filter(({ name }) => new RegExp(`^${letter}`).test(name.toLowerCase()));
     dispatch(filterCountries(filtered));
   };
+  const search = e => {
+    let term = e.target.value;
+    
+    let filtered = countries.filter(({ name }) => new RegExp(`${term}`).test(name.toLowerCase()));
+    dispatch(filterCountries(filtered));
+  };
   return (
     <nav>
+    <input onInput={search} />
     <ul>
       {"abcdefghijklmnopqrstuvwxyz".split("").map(letter => (
         <li key={letter} onClick={letterClick}>

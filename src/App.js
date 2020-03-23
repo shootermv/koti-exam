@@ -9,7 +9,7 @@ import {getCountries} from './redux/actions'
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-      // trigger action to fetch coutries from Api
+      // trigger action to fetch countries from Api
       dispatch(getCountries())
   }, [dispatch]);
   
