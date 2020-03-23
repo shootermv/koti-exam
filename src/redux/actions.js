@@ -12,7 +12,7 @@ export const filterCountries = filtered => ({
     filtered
 })
 
-export const selectedCountry = country => ({
+export const selectCountry = selectedCountry => ({
     type:'SELECTED_COUNTRY',
-    country
+    selectedCountry
 }) 

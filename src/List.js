@@ -1,7 +1,10 @@
 import React from "react";
 import {useSelector, useDispatch} from "react-redux";
-export default function List({ countryClick }) {
-  const countries = useSelector(({ filtered }) => filtered)
+import {selectCountry} from './redux/actions'
+
+export default function List() {
+  const countries = useSelector(({ filtered }) => filtered);
+  const dispatch = useDispatch();
   if (!countries) return (<></>);
   return (
     <>
@@ -10,11 +13,7 @@ export default function List({ countryClick }) {
         {countries.map(({ name }) => (
           <li
             key={name}
-            onClick={e =>
-              countryClick(
-                countries.find(({ name }) => name === e.target.textContent)
-              )
-            }
+            onClick={({target: {textContent:  country}}) => dispatch(selectCountry(countries.find(({name}) => country === name)))}
           >
             {name}
           </li>

@@ -1,5 +1,5 @@
 
-export function countries(state = {countries:[]}, action) {
+export function countries(state = {countries:[], filtered:[], }, action) {
     switch (action.type) {
         case 'COUNTRIES_SUCCESS':
             return {                
@@ -9,8 +9,15 @@ export function countries(state = {countries:[]}, action) {
         case 'COUNTRIES_FILTERED':
             return {                
                 ...state,
+                selectedCountry: null,
                 filtered: action.filtered
-            };   
+            };
+            
+        case 'SELECTED_COUNTRY':
+            return {                
+                ...state,
+                selectedCountry: action.selectedCountry
+            };            
         default:
             return state
     }
