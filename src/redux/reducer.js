@@ -5,6 +5,12 @@ export function countries(state = {countries:[]}, action) {
             return {                
                 countries: action.countries
             };
+
+        case 'COUNTRIES_FILTERED':
+            return {                
+                ...state,
+                filtered: action.filtered
+            };   
         default:
             return state
     }

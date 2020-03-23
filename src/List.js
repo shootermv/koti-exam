@@ -1,6 +1,8 @@
 import React from "react";
-
-export default function List({ countries = [], countryClick }) {
+import {useSelector, useDispatch} from "react-redux";
+export default function List({ countryClick }) {
+  const countries = useSelector(({ filtered }) => filtered)
+  if (!countries) return (<></>);
   return (
     <>
       <h4>list:</h4>

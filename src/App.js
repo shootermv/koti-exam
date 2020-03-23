@@ -4,7 +4,7 @@ import List from "./List";
 import Details from "./Details";
 import "./styles.css";
 import SideBar from "./Sidebar";
-import {getCountries} from './redux/actions'
+import {getCountries, filterCountries} from './redux/actions'
 
 export default function App() {
 
@@ -16,20 +16,22 @@ export default function App() {
   const letterClick = e => {
     let letter = e.target.textContent;
     setSelectedCountry(null);
+    /*
     setFiltered(
       countries.filter(({ name }) =>
         new RegExp(`^${letter}`).test(name.toLowerCase())
       )
     );
+    */
+    let filtered = countries.filter(({ name }) => new RegExp(`^${letter}`).test(name.toLowerCase()));
+    dispatch(filterCountries(filtered));
   };
 
   
   useEffect(() => {
-    /*fetch(`https://restcountries.eu/rest/v2/all`)
-      .then(d => d.json())
-      .then(data => setCountries(data));*/
+      // trigger action to fetch coutries from Api
       dispatch(getCountries())
-  }, []);
+  }, [dispatch]);
   
 
   return (
