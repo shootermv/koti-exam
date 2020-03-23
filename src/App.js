@@ -7,9 +7,14 @@ import SideBar from "./Sidebar";
 import {getCountries, prevStep} from './redux/actions'
 import styled from '@emotion/styled';
 
+
 const Main = styled.main`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr
+  }
   grid-gap: 20px;
   padding: 20px;
 `
