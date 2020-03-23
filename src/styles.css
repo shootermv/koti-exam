@@ -1,0 +1,28 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+
+  display: grid;
+
+  grid-template-areas:
+    "nav header"
+    "nav content"
+    "nav footer";
+
+  grid-template-columns: 40px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-gap: 10px;
+  height: 100vh;
+}
+aside {
+  grid-area: nav;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+li {
+  cursor: pointer;
+}
