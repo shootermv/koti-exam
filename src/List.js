@@ -10,12 +10,12 @@ export default function List() {
     <>
       <h4>list:</h4>
       <ul>
-        {countries.map(({ name }) => (
+        {countries.map(country => (
           <li
-            key={name}
-            onClick={({target: {textContent:  country}}) => dispatch(selectCountry(countries.find(({name}) => country === name)))}
+            key={country.name}
+            onClick={() => dispatch(selectCountry(country))}
           >
-            {name}
+            {country.name}
           </li>
         ))}
       </ul>
