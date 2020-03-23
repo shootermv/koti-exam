@@ -3,6 +3,7 @@ import {filterCountries} from './redux/actions';
 import  {useDispatch} from "react-redux";
 
 import styled from '@emotion/styled'
+import Search from "./Search";
 
 const Li = styled.li`
   color: ${props =>
@@ -22,13 +23,10 @@ export default function SideBar() {
     let term = e.target.textContent;
     dispatch(filterCountries(term, true));
   };
-  const search = e => {
-    let term = e.target.value;
-    dispatch(filterCountries(term));
-  };
+
   return (
     <Nav column>
-        <input onInput={search} />
+        <Search/>
         <ul>
         {"abcdefghijklmnopqrstuvwxyz".split("").map(letter => (
             <Li key={letter} onClick={letterClick}>
