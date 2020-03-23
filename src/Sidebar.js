@@ -1,9 +1,8 @@
 import React from "react";
 import {filterCountries} from './redux/actions';
-import  {useDispatch, useSelector} from "react-redux";
+import  {useDispatch} from "react-redux";
 
 export default function SideBar() {
-  const countries = useSelector(({ countries }) => countries)
   const dispatch = useDispatch();
   const letterClick = e => {
     let term = e.target.textContent;
@@ -19,10 +18,10 @@ export default function SideBar() {
         <ul>
         {"abcdefghijklmnopqrstuvwxyz".split("").map(letter => (
             <li key={letter} onClick={letterClick}>
-            {letter}
+             {letter}
             </li>
         ))}
         </ul>
-  </nav>
+    </nav>
   );
 }
