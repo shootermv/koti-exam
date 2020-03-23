@@ -7,12 +7,17 @@ export function countries(state = {countries:[], filtered:[], }, action) {
             };
 
         case 'COUNTRIES_FILTERED':
+            
+            let {term, beginsWith} = action;
+            beginsWith =  beginsWith ? '^' : '';
+            let filtered = state.countries.filter(({ name }) => new RegExp(`${beginsWith}${term}`).test(name.toLowerCase()));
             return {                
                 ...state,
                 selectedCountry: null, // must 'reset' selected country
-                filtered: action.filtered
+                filtered
             };
-            
+
+          
         case 'SELECTED_COUNTRY':
             return {                
                 ...state,

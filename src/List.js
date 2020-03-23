@@ -5,7 +5,7 @@ import {selectCountry} from './redux/actions'
 export default function List() {
   const countries = useSelector(({ filtered }) => filtered);
   const dispatch = useDispatch();
-  if (!countries) return (<></>);
+  if (!countries) return null;
   return (
     <>
       <h4>list:</h4>

@@ -7,9 +7,10 @@ export const getCountriesSuccess = countries => ({
     countries
 })
 
-export const filterCountries = filtered => ({
+export const filterCountries = (term, beginsWith = false) => ({
     type: 'COUNTRIES_FILTERED',
-    filtered
+    term,
+    beginsWith
 })
 
 export const selectCountry = selectedCountry => ({
