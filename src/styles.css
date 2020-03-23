@@ -1,9 +1,14 @@
+html,body{ 
+  height: 100vh;
+  margin:0; 
+  padding:0;
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
-
+  height: 100vh;
   display: grid;
-
   grid-template-areas:
     "nav header"
     "nav content"
@@ -11,12 +16,17 @@
 
   grid-template-columns: 40px 1fr;
   grid-template-rows: auto 1fr;
-  grid-gap: 10px;
+ 
   height: 100vh;
 }
 aside {
   grid-area: nav;
+  background: #2d3446;
 }
+main {
+  background: #f1f3f6;
+}
+
 ul,
 li {
   margin: 0;

@@ -16,7 +16,10 @@ export default function App() {
 
   return (
     <div className="App">
-      <header>Hello CodeSandbox <button onClick={() => dispatch(prevStep())}>back</button></header>
+      <header>
+        Hello CodeSandbox 
+        <button onClick={() => dispatch(prevStep())}>back</button>
+      </header>
       <main>
         <List/>
         <Details/>
